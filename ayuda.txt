@@ -1,0 +1,6 @@
+3.2.1 Trabajando con ramas en GitHub
+Crear una rama en Github
+Para crear una rama en GitHub:
+Entra a tu repositorio de Git
+Da clic en el botón de Branch: master
+Teclea el nombre de tu branch, en esta caso será: Develop

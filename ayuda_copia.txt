@@ -1,0 +1,7 @@
+Una vez creada la rama, puedes agregar otra rama para realizar los cambios de tu código, por ejemplo feature3 donde 3 es el número de tarea en tu sistema de control de cambios, por ejemplo azure devops.
+Una vez que terminas los cambios creas un pull request desde visual studio o desde github
+Cambiar de rama en Github
+Si deseas ver el contenido de otra rama en Github serían los mismos pasos
+Entra a tu repositorio de Git
+Da clic en el botón de Branch: master
+Busca o selecciona la rama de la cual deseas ver su contenido. Puedes confirmar el cambio porque ya no dice master, si no el nombre de la rama y se muestra una palomita en la rama actual
