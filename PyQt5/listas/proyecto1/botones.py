@@ -5,7 +5,7 @@ from PyQt5 import uic
 class MiVentana(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi("proyecto1/botones.ui", self)
+        uic.loadUi("botones.ui", self)
         self.boton1.clicked.connect(self.on_boton1_clicked)
         self.boton2.clicked.connect(self.on_boton2_clicked)
 
