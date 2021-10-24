@@ -13,8 +13,8 @@ class MiVentana(QMainWindow):
 
 
 
-        #self.editar.clicked.connect(self.on_editar)
-        #self.eliminar.clicked.connect(self.on_eliminar)
+        self.editar.clicked.connect(self.on_editar)
+        self.eliminar.clicked.connect(self.on_eliminar)
         #self.eliminartodo.clicked.connect(self.on_eliminartodo)
         
         
