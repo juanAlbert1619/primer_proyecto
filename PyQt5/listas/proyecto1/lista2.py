@@ -5,7 +5,7 @@ from PyQt5 import uic
 class MiVentana(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi("proyecto1/lista2.ui", self)
+        uic.loadUi("lista2.ui", self)
         self.agregar.clicked.connect(self.on_agregar)
         self.editar.clicked.connect(self.on_editar)
         self.eliminar.clicked.connect(self.on_eliminar)

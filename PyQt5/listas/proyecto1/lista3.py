@@ -5,7 +5,7 @@ from PyQt5 import uic
 class MiVentana(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi("proyecto1/lista3.ui", self)
+        uic.loadUi("lista3.ui", self)
         self.agregar.clicked.connect(self.on_agregar)
         self.btn_agregar.clicked.connect(self.on_btn_agregar)
         self.regresar.clicked.connect(self.on_regresar)
@@ -35,6 +35,7 @@ class MiVentana(QMainWindow):
         nuevo_texto, ok = QInputDialog.getText(self, 'Editar', 'Ingrese nuevo nombre', text = texto_item)
         if ok:
             self.lista.currentItem().setText(nuevo_texto) 
+
 
     def on_eliminar(self):
         self.lista.takeItem(self.lista.currentRow())
