@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>732</width>
+    <width>760</width>
     <height>132</height>
    </rect>
   </property>
@@ -23,13 +23,28 @@
       <height>111</height>
      </rect>
     </property>
+    <column>
+     <property name="text">
+      <string>Nombre</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Apellido</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>e-mail</string>
+     </property>
+    </column>
    </widget>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>470</x>
+      <x>490</x>
       <y>10</y>
-      <width>251</width>
+      <width>261</width>
       <height>111</height>
      </rect>
     </property>
@@ -37,30 +52,30 @@
      <item>
       <layout class="QFormLayout" name="formLayout">
        <item row="0" column="1">
-        <widget class="QLineEdit" name="lineEdit"/>
+        <widget class="QLineEdit" name="txt_nombre"/>
        </item>
        <item row="1" column="0">
-        <widget class="QLabel" name="label_2">
+        <widget class="QLabel" name="lbl_apellido">
          <property name="text">
           <string>Apellido:</string>
          </property>
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QLineEdit" name="lineEdit_2"/>
+        <widget class="QLineEdit" name="txt_apellido"/>
        </item>
        <item row="2" column="0">
-        <widget class="QLabel" name="label_3">
+        <widget class="QLabel" name="lbl_mail">
          <property name="text">
           <string>e-mail:</string>
          </property>
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QLineEdit" name="lineEdit_3"/>
+        <widget class="QLineEdit" name="txt_e_mail"/>
        </item>
        <item row="0" column="0">
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="lbl_nombre">
          <property name="text">
           <string>Nombre:</string>
          </property>
@@ -69,9 +84,9 @@
       </layout>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="btn_agregar">
        <property name="text">
-        <string>PushButton</string>
+        <string>Agregar</string>
        </property>
       </widget>
      </item>
