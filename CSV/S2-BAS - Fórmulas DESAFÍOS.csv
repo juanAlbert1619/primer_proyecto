@@ -1,0 +1,27 @@
+;;;;;;;;;;;;;;;;;;;
+1;Desafío: (Abrir);;;;;;;;;;;;;;;;;;
+1;Calcular el (%) de Incidencia de cada Actividad en el Presupuesto ORIGINAL.;;;;;;;;;;;;;;;;;;
+1;Calcular el (%) de Incidencia de cada Actividad en el Presupuesto MODIFICADO.;;;;;;;;;;;;;;;;;;
+1;Calcular el (%) de Variación entre el Presupuesto Modificado vs el Original.;;;;;;;;;;;;;;;;;;
+1;Colocar un formato Condicional de Barras en la columna del (%) de Variación.;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;
+;PRESUPUESTO Original vs Modificado.;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;
+;Sector;Actividad;ORIGINAL;;MODIFICADO;;(%) Variación;;;;;;;;;;;;
+;Sector;Actividad;MONTO ($);(%);MONTO ($) ;(%)  ;(%) Variación;;;;;;;;;;;;
+; Excavación ; Excavación en Tierra ; 12.140,00 ;4%; 13.030,00 ;5%;7%;;;;;;Productos;Cant. bolson;Pack;Cant. Pack;Subtotal;Cantidad ;
+; Excavación ; Excavación en Roca ; 18.100,00 ;7%; 16.500,00 ;6%;-9%;;;;;;Productos;Cant;Pack;Cant. Pack;Subtotal;Productos ;Total bolsones
+; Fundaciones ; Formaleta Fundaciones ; 15.180,00 ;6%; 28.450,00 ;10%;87%;;;;;;Fideo Tallarines;1;20;12; 30 ; 240 ; 210 
+; Fundaciones ; Acero Fundaciones ; 45.540,00 ;17%; 31.080,00 ;11%;-32%;;;;;;Fideos Coditos;1;15;10; 19 ; 150 ; 131 
+; Fundaciones ; Concreto Fundaciones ; 40.480,00 ;15%; 26.340,00 ;9%;-35%;;;;;;Aceite;1;30;12; 45 ; 360 ; 315 
+; Losa de Piso ; Formaleta Losa ; 10.120,00 ;4%; 21.450,00 ;8%;112%;;;;;;Yerba;1;30;10; 38 ; 300 ; 263 
+; Losa de Piso ; Acero Losa ; 38.460,00 ;14%; 49.450,00 ;18%;29%;;;;;;Arveja;1;20;8; 20 ; 160 ; 140 
+; Losa de Piso ; Concreto Losa ; 42.500,00 ;16%; 44.630,00 ;16%;5%;;;;;;;5;;;;;
+; Columnas ; Paredes ; 9.110,00 ;3%; 9.470,00 ;3%;4%;;;;;;;;;;;;
+; Columnas ; Repello ; 20.240,00 ;7%; 18.290,00 ;7%;-10%;;;;;;Productos Minimo;8;=;;;;
+; Columnas ; Concreto ; 21.250,00 ;8%; 20.440,00 ;7%;-4%;;;;;;Productos Maximo;12;;;;;
+; Total ;; 273.120,00 ;100%; 279.130,00 ;100%;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;30;160;;
