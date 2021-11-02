@@ -6,7 +6,7 @@ from PyQt5 import uic
 class MiVentana(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi("01_tabla_profe_matias.ui", self)
+        uic.loadUi("01_tabla_formulario.ui", self)
         # crear las columnas
         self.tabla.setColumnCount(3)
         self.tabla.setColumnWidth(0,100)
