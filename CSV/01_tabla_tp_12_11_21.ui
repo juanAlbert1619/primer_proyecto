@@ -88,21 +88,21 @@
        <item>
         <widget class="QPushButton" name="btn_agregar">
          <property name="text">
-          <string>Agregar</string>
+          <string>Carga</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="pushButton">
          <property name="text">
-          <string>PushButton</string>
+          <string>Guardar</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="pushButton_2">
          <property name="text">
-          <string>PushButton</string>
+          <string>Elimina</string>
          </property>
         </widget>
        </item>
