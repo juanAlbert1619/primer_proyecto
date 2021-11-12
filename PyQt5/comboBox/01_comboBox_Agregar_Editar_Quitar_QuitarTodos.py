@@ -5,7 +5,7 @@ from PyQt5 import uic
 class MiVentana(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi("ComboBox/combo_agregar_editar_quitar_quitarTodos.ui", self)
+        uic.loadUi("combo_agregar_editar_quitar_quitarTodos.ui", self)
         self.btn_agregar.clicked.connect(self.on_agregar)
         self.btn_editar.clicked.connect(self.on_editar)
         self.btn_quitar.clicked.connect(self.on_quitar)
