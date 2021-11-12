@@ -55,3 +55,39 @@ class MiVentana(QMainWindow):
             self.tabla.setItem(fila, 1, QTableWidgetItem('{0}'.format(f[1])))
             self.tabla.setItem(fila, 2, QTableWidgetItem('{0}'.format(f[2])))
 
+        archivo.close()
+    
+    def on_guardar(self):
+
+        archivo = open('datos.csv', 'W', newline='')
+        guardar = csv.writer(archivo, delimiter =',', quotechar='"')
+
+        numRow = self.tablarowCount()
+
+        for f in range(numRow):
+            datos_tabla = [self.tabla.item(f, 0).text(), self.tabla.item(f, 1).text(), self.tabla.item(f, 2).text()]
+            guardar.writerows(datos_tabla)
+
+        archivo.close()
+
+    
+    def on_eliminar(self):
+
+        msg = QMessageBox()
+        msg.setWindowTitle('Quitar Fila')
+        msg.setText('Quieres eliminar la \n fila seleccionada?')
+
+        msg.setIcon(QMessageBox.Warning)
+        msg.setStandarButtons(QMessageBox.Ok)
+
+        filaseleccionada = self.tabla.selectedItem()
+        resultado = msg.exec_()
+        if resultado == QMessageBox.ok:
+            fila = filaseleccionada[0].row()
+            self.tabla.removeRow(fila)
+            self.tabla.clearSelection()
+        else:
+            QMessageBox.critical(self, 'Eliminar fila', 'Seleccione una fila', QMessageBox.Ok)
+
+
+
