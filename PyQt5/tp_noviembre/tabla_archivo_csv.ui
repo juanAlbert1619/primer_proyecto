@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Agenada</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QTableWidget" name="tabla">
@@ -23,21 +23,6 @@
       <height>161</height>
      </rect>
     </property>
-    <column>
-     <property name="text">
-      <string>Nombre</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Apellido</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>e-mail</string>
-     </property>
-    </column>
    </widget>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
