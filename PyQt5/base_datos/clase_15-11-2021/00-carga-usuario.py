@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import QMainWindow, QApplication, QTableWidgetItem,QMessageBox,QInputDialog
 from PyQt5 import uic
-import csv
+import sqlite3
 
 class MiVentana(QMainWindow):
     def __init__(self):
