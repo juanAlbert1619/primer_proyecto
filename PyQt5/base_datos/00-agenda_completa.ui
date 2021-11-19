@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>572</width>
-    <height>369</height>
+    <width>610</width>
+    <height>287</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +19,8 @@
      <rect>
       <x>370</x>
       <y>10</y>
-      <width>191</width>
-      <height>341</height>
+      <width>231</width>
+      <height>231</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -29,14 +29,14 @@
        <item row="2" column="0">
         <widget class="QLabel" name="lbl_apellido">
          <property name="text">
-          <string>Apellido</string>
+          <string>Apellidos</string>
          </property>
         </widget>
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="label">
          <property name="text">
-          <string>Nombre</string>
+          <string>Nombres</string>
          </property>
         </widget>
        </item>
@@ -48,29 +48,65 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QLineEdit" name="lineEdit"/>
+        <widget class="QLineEdit" name="nombre"/>
        </item>
        <item row="2" column="1">
-        <widget class="QLineEdit" name="lineEdit_2"/>
+        <widget class="QLineEdit" name="apellido"/>
        </item>
        <item row="3" column="1">
-        <widget class="QLineEdit" name="lineEdit_3"/>
+        <widget class="QLineEdit" name="email"/>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Telefono</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Direccion</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>Fecha de Nac.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>Altura</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="label_6">
+         <property name="text">
+          <string>Peso</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QLineEdit" name="telefono"/>
+       </item>
+       <item row="5" column="1">
+        <widget class="QLineEdit" name="direccion"/>
+       </item>
+       <item row="6" column="1">
+        <widget class="QLineEdit" name="fechaNac"/>
+       </item>
+       <item row="7" column="1">
+        <widget class="QLineEdit" name="altura"/>
+       </item>
+       <item row="8" column="1">
+        <widget class="QLineEdit" name="peso"/>
        </item>
       </layout>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btn_carga">
-       <property name="text">
-        <string>Carga de Usuarios</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton">
-       <property name="text">
-        <string>Agregar Usuario</string>
-       </property>
-      </widget>
      </item>
     </layout>
    </widget>
@@ -80,12 +116,52 @@
       <x>10</x>
       <y>10</y>
       <width>351</width>
-      <height>341</height>
+      <height>231</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QListWidget" name="listWidget"/>
+      <widget class="QListWidget" name="lista"/>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>230</y>
+      <width>591</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QPushButton" name="btn_nuevo">
+       <property name="text">
+        <string>Nuevo</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_editar">
+       <property name="text">
+        <string>Editar</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_guardar">
+       <property name="text">
+        <string>Guardar</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_eliminar">
+       <property name="text">
+        <string>Eliminar</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
