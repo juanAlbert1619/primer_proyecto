@@ -1,3 +1,5 @@
+from _typeshed import Self
+from sqlite3.dbapi2 import Cursor
 from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox,QInputDialog
 from PyQt5 import uic
 import sqlite3
@@ -15,12 +17,31 @@ class MiVentana(QMainWindow):
         self.btn_nuevo.clicked.connect(self.on_nuevo_reg)
         #self.btn_editar.clicked.connect(self.on_editar_reg)
         #self.btn_eliminar.clicked.connect(self.on_eliminar_reg)
-        #self.btn_aceptar.clicked.connect(self.on_aceptar_reg)
+        self.btn_aceptar.clicked.connect(self.on_aceptar_reg)
         #self.btn_cancelar.clicked.connect(self.on_cancelar_reg)
 
-    # def on_cargar(self):
-    #     self.cursor.execute('select * from usuarios')
-    #     usuarios = self.cursor.fetchall()
+    def on_aceptar_reg(self):
+
+        self.conexion = sqlite3.connect('00-basee.db')
+        self.cursor = self.conexion.cursor()
+
+    # Datos
+
+        self.nombre = (str(self.nombre.text())
+        self.apellido = (str(self.apellido.text())
+        self.direccion = (str(self.direccion.text())
+        self.email = (str(self.email.text())
+        self.fechaNac = (str(self.fechaNac.text())
+        self.telefono = (str(self.telefono.text())
+        self.altura = (str(self.altura.text())
+        self.peso = (str(self.peso.text())
+        self.registros(self.nombre, self.apellido, self.nombre, self.direccion, self.email, self.fechaNac, self.telefono, self.altura, self.peso)
+
+
+    # Insertar los datos en la tabla de campos
+
+        self.Cursor.execute('insert into campos (nombre, apellido, email, direccion, fechaNac, telefono, altura, peso) values (?, ?, ?, ?, ?, ?, ?, ?,)', self.registros)
+        self.conexion.commit()
 
         
 
@@ -28,17 +49,30 @@ class MiVentana(QMainWindow):
     def on_nuevo_reg(self): 
 
        
+        self.btn_nuevo.setEnabled(False)
+        self.btn_editar.setEnabled(True)
+        self.btn_eliminar.setEnabled(True)
+        self.btn_aceptar.setEnabled(True)
+        self.btn_cancelar.setEnabled(True)
+
         self.nombre.setText("")
+        self.nombre.setEnabled(True)
         self.apellido.setText("")
+        self.apellido.setEnabled(True)
         self.email.setText("")
+        self.email.setEnabled(True)
         self.telefono.setText("")
+        self.telefono.setEnabled(True)
         self.direccion.setText("")
+        self.direccion.setEnabled(True)
         self.fechaNac.setText("")
+        self.fechaNac.setEnabled(True)
         self.altura.setText("")
+        self.altura.setEnabled(True)
         self.peso.setText("")
+        self.peso.setEnabled(True)
 
-        self.nuevo.setEnabled(False)
-
+        
 
     # def on_editar_reg(self): 
     #      pass  
