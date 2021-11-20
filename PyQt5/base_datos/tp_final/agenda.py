@@ -12,7 +12,7 @@ class MiVentana(QMainWindow):
         self.cursor = self.conexion.cursor()
        
        
-        self.nuevo.clicked.connect(self.on_nuevo_reg)
+        self.btn_nuevo.clicked.connect(self.on_nuevo_reg)
         #self.btn_editar.clicked.connect(self.on_editar_reg)
         #self.btn_eliminar.clicked.connect(self.on_eliminar_reg)
         #self.btn_aceptar.clicked.connect(self.on_aceptar_reg)
