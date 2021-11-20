@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>AgendadeContactos</class>
+ <widget class="QMainWindow" name="AgendadeContactos">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Agenda de Contactos</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="verticalLayoutWidget">
@@ -48,13 +48,25 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QLineEdit" name="nombre"/>
+        <widget class="QLineEdit" name="nombre">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QLineEdit" name="apellido"/>
+        <widget class="QLineEdit" name="apellido">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
        <item row="3" column="1">
-        <widget class="QLineEdit" name="email"/>
+        <widget class="QLineEdit" name="email">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
        <item row="4" column="0">
         <widget class="QLabel" name="label_2">
@@ -92,19 +104,39 @@
         </widget>
        </item>
        <item row="4" column="1">
-        <widget class="QLineEdit" name="telefono"/>
+        <widget class="QLineEdit" name="telefono">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
        <item row="5" column="1">
-        <widget class="QLineEdit" name="direccion"/>
+        <widget class="QLineEdit" name="direccion">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
        <item row="6" column="1">
-        <widget class="QLineEdit" name="fechaNac"/>
+        <widget class="QLineEdit" name="fechaNac">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
        <item row="7" column="1">
-        <widget class="QLineEdit" name="altura"/>
+        <widget class="QLineEdit" name="altura">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
        <item row="8" column="1">
-        <widget class="QLineEdit" name="peso"/>
+        <widget class="QLineEdit" name="peso">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
