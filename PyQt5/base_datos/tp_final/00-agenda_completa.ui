@@ -150,16 +150,23 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btn_guardar">
+      <widget class="QPushButton" name="btn_eliminar">
        <property name="text">
-        <string>Guardar</string>
+        <string>Eliminar</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btn_eliminar">
+      <widget class="QPushButton" name="btn_aceptar">
        <property name="text">
-        <string>Eliminar</string>
+        <string>Aceptar</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_cancelar">
+       <property name="text">
+        <string>Cancelar</string>
        </property>
       </widget>
      </item>

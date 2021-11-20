@@ -14,8 +14,9 @@ class MiVentana(QMainWindow):
        
         self.nuevo.clicked.connect(self.on_nuevo_reg)
         self.btn_editar.clicked.connect(self.on_editar_reg)
-        self.btn_guardar.clicked.connect(self.on_guardar_reg)
         self.btn_eliminar.clicked.connect(self.on_eliminar_reg)
+        self.btn_aceptar.clicked.connect(self.on_aceptar_reg)
+        self.btn_cancelar.clicked.connect(self.on_cancelar_reg)
 
     # def on_cargar(self):
     #     self.cursor.execute('select * from usuarios')
@@ -40,7 +41,7 @@ class MiVentana(QMainWindow):
     def on_editar_reg(self): 
          pass  
 
-    def on_guardar_reg(self): 
+    def on_aceptar_reg(self): 
         self.conexion = sqlite3.connect('00-basee.db')
         self.cursor = self.conexion.cursor() 
 
@@ -64,6 +65,10 @@ class MiVentana(QMainWindow):
         
 
     def on_eliminar_reg(self): 
+         pass  
+    
+
+    def on_cancelar_reg(self): 
          pass  
     
     
