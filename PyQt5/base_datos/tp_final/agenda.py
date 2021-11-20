@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QMainWindow, QApplication, QTableWidgetItem,QMessageBox,QInputDialog
+from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox,QInputDialog
 from PyQt5 import uic
 import sqlite3
 
