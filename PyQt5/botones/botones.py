@@ -16,10 +16,10 @@ class MiVentana(QMainWindow):
         self.boton2.setEnabled(False)
         self.boton1.setEnabled(True)
 
-win = MiVentana
 app = QApplication([])
-
+win = MiVentana()
 win.show()
-app.exc_()
+
+app.exec_()
 
 
