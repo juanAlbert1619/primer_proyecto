@@ -10,13 +10,6 @@ class MiVentana(QMainWindow):
         #conectar la base de datos
         self.conexion = sqlite3.connect('00-basee.db')
         self.cursor = self.conexion.cursor()
-
-        #Crea las Columnas
-        self.tabla.setColumnCount(4)
-
-        #Nombrar las Columnas
-        self.tabla.setHorizontalHeaderLabels(('Nombre', 'Apellido', 'e-mail', 'Telefono', 'Direccion', 'Fecha Nacimiento', 'Altura', 'Peso'))
-
         self.nuevo.clicked.connect(self.on_nuevo_reg)
         self.btn_editar.clicked.connect(self.on_editar_reg)
         self.btn_guardar.clicked.connect(self.on_guardar_reg)
@@ -26,22 +19,28 @@ class MiVentana(QMainWindow):
         self.cursor.execute('select * from usuarios')
         usuarios = self.cursor.fetchall()
 
-        for usuario in usuarios:
-            fila = usuarios.index(usuario) # lee el indice cero del arreglo
-            self.tabla.insertRow(fila)
-            self.tabla.setItem(fila, 0, QTableWidgetItem(str(usuario[0])))
-            self.tabla.setItem(fila, 1, QTableWidgetItem(usuario[1]))
-            self.tabla.setItem(fila, 2, QTableWidgetItem(usuario[2]))
-            self.tabla.setItem(fila, 3, QTableWidgetItem(usuario[3]))
-            self.tabla.setItem(fila, 4, QTableWidgetItem(usuario[4]))
-            self.tabla.setItem(fila, 5, QTableWidgetItem(usuario[5]))
-            self.tabla.setItem(fila, 6, QTableWidgetItem(usuario[6]))
-            self.tabla.setItem(fila, 7, QTableWidgetItem(usuario[7]))
-            self.tabla.setItem(fila, 8, QTableWidgetItem(usuario[8]))
+        
 
 
     def on_nuevo_reg(self): 
-         pass  
+
+        self.lista.addItem(self.nombre.text())
+        self.nombre.setText("")
+        self.lista.addItem(self.apellido.text())
+        self.apellido.setText("")
+        self.lista.addItem(self.email.text())
+        self.email.setText("")
+        self.lista.addItem(self.telefono.text())
+        self.telefono.setText("")
+        self.lista.addItem(self.direccion.text())
+        self.direccion.setText("")
+        self.lista.addItem(self.fechaNac.text())
+        self.fechaNac.setText("")
+        self.lista.addItem(self.altura.text())
+        self.altura.setText("")
+        self.lista.addItem(self.peso.text())
+        self.peso.setText("")
+
 
     def on_editar_reg(self): 
          pass  
