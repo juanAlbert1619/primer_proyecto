@@ -1,4 +1,3 @@
-from _typeshed import Self
 from sqlite3.dbapi2 import Cursor
 from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox,QInputDialog
 from PyQt5 import uic
@@ -27,15 +26,15 @@ class MiVentana(QMainWindow):
 
     # Datos
 
-        self.nombre = (str(self.nombre.text())
-        self.apellido = (str(self.apellido.text())
-        self.direccion = (str(self.direccion.text())
-        self.email = (str(self.email.text())
-        self.fechaNac = (str(self.fechaNac.text())
-        self.telefono = (str(self.telefono.text())
-        self.altura = (str(self.altura.text())
-        self.peso = (str(self.peso.text())
-        self.registros(self.nombre, self.apellido, self.nombre, self.direccion, self.email, self.fechaNac, self.telefono, self.altura, self.peso)
+        self.nombre = (str(self.nombre.text()))
+        self.apellido = (str(self.apellido.text()))
+        self.direccion = (str(self.direccion.text()))
+        self.email = (str(self.email.text()))
+        self.fechaNac = (str(self.fechaNac.text()))
+        self.telefono = (str(self.telefono.text()))
+        self.altura = (str(self.altura.text()))
+        self.peso = (str(self.peso.text()))
+        self.registros = (self.nombre, self.apellido, self.nombre, self.direccion, self.email, self.fechaNac, self.telefono, self.altura, self.peso)
 
 
     # Insertar los datos en la tabla de campos
