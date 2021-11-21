@@ -9,7 +9,7 @@ class MiVentana(QMainWindow):
         uic.loadUi('00-agenda_completa.ui', self)
 
         #conectar la base de datos
-        self.conexion = sqlite3.connect('00-basee.db')
+        self.conexion = sqlite3.connect('contactos.db')
         self.cursor = self.conexion.cursor()
        
        
@@ -21,17 +21,28 @@ class MiVentana(QMainWindow):
 
     def on_aceptar_reg(self):
 
-        self.conexion = sqlite3.connect('00-basee.db')
+        self.conexion = sqlite3.connect('contactos.db')
         self.cursor = self.conexion.cursor()
 
     # Datos
 
+        self.lista.addItem(self.nombre.text())
+        self.lista.addItem(self.apellido.text())
+        self.lista.addItem(self.email.text())
+        self.lista.addItem(self.telefono.text())
+        self.lista.addItem(self.direccion.text())
+        self.lista.addItem(self.fechaNac.text())
+        self.lista.addItem(self.altura.text())
+        self.lista.addItem(self.peso.text())
+        
+        
+        
         self.nombre = (str(self.nombre.text()))
         self.apellido = (str(self.apellido.text()))
-        self.direccion = (str(self.direccion.text()))
         self.email = (str(self.email.text()))
-        self.fechaNac = (str(self.fechaNac.text()))
         self.telefono = (str(self.telefono.text()))
+        self.direccion = (str(self.direccion.text()))
+        self.fechaNac = (str(self.fechaNac.text()))
         self.altura = (str(self.altura.text()))
         self.peso = (str(self.peso.text()))
         self.registros = (self.nombre, self.apellido, self.nombre, self.direccion, self.email, self.fechaNac, self.telefono, self.altura, self.peso)
@@ -39,10 +50,18 @@ class MiVentana(QMainWindow):
 
     # Insertar los datos en la tabla de campos
 
-        self.Cursor.execute('insert into campos (nombre, apellido, email, direccion, fechaNac, telefono, altura, peso) values (?, ?, ?, ?, ?, ?, ?, ?,)', self.registros)
+        self.cursor.execute("INSERT INTO contactos (nombre, apellido, email, telefono, direccion, fechaNac,  altura, peso) VALUES ('{0} ', '{1} ', '{2} ', '{3} ', '{4} ', '{5} ', '{6} ', '{7} ', )", self.registros)
         self.conexion.commit()
 
         
+
+        
+        
+        #conexion.commit()
+
+        self.conexion.close()
+
+              
 
 
     def on_nuevo_reg(self): 
@@ -76,9 +95,7 @@ class MiVentana(QMainWindow):
     # def on_editar_reg(self): 
     #      pass  
 
-    # def on_aceptar_reg(self): 
-    #     self.conexion = sqlite3.connect('00-basee.db')
-    #     self.cursor = self.conexion.cursor() 
+    
 
     # #Datos
     #     self.nombre = str(self.nombre.text())
@@ -92,7 +109,7 @@ class MiVentana(QMainWindow):
     #     self.registroDatos = (self.nombre, self.apellido, self.email, self.telefono, self.direccion, self.fechaNac, self.altura, self.peso)
 
     # #Insertamos los datos en una tabla de campos
-    #     self.curso.execute('INSER INTO campos (nombre, apellido, email, telefono, direccion, fechaNac, altura, peso) VALUE(?, ?, ?, ?, ?, ?, ?, ?)', self.registroDatos)
+    #     self.curso.execute('INSER INTO contactos (nombre, apellido, email, telefono, direccion, fechaNac, altura, peso) VALUE(?, ?, ?, ?, ?, ?, ?, ?)', self.registroDatos)
     #     self.conexion.commit()
 
     #     self.conexion.close()
