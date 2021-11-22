@@ -1,5 +1,3 @@
-
-
 from sqlite3.dbapi2 import Cursor
 from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox,QInputDialog
 from PyQt5 import uic
@@ -9,6 +7,18 @@ class MiVentana(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi('00-agenda_completa.ui', self)
+
+        conexion = sqlite3.connect('contactos.db')
+        cursor = conexion.cursor()
+
+        cursor.execute('select nombre, apellido, email, telefono, direccion, fechaNac,  altura, peso from contactos')
+        filas = cursor.fetchall()
+
+        self.lista.clear()
+
+
+        for fila in filas:
+           self.lista.addItem(f'nombre: {fila[0]} apellido: {fila[1]} email: {fila[2]} telefono: {fila[3]} direccion: {fila[4]} fechaNac {fila[5]}  altura: {fila[6]} peso: {fila[7]}')
 
         #conectar la base de datos
         self.conexion = sqlite3.connect('contactos.db')
@@ -28,20 +38,45 @@ class MiVentana(QMainWindow):
         self.conexion = sqlite3.connect('contactos.db')
         self.cursor = self.conexion.cursor()
 
+    # Botones habilitados
+
+        self.btn_nuevo.setEnabled(True)
+        self.btn_editar.setEnabled(True)
+        self.btn_eliminar.setEnabled(True)
+        self.btn_aceptar.setEnabled(False)
+        self.btn_cancelar.setEnabled(False)
+
+
+        # self.nombre.setText("")
+        self.nombre.setEnabled(False)
+        # self.apellido.setText("")
+        self.apellido.setEnabled(False)
+        # self.email.setText("")
+        self.email.setEnabled(False)
+        # self.telefono.setText("")
+        self.telefono.setEnabled(False)
+        # self.direccion.setText("")
+        self.direccion.setEnabled(False)
+        # self.fechaNac.setText("")
+        self.fechaNac.setEnabled(False)
+        # self.altura.setText("")
+        self.altura.setEnabled(False)
+        # self.peso.setText("")
+        self.peso.setEnabled(False)
+
     # Datos
 
-        self.lista.addItem(self.nombre.text())
-        self.lista.addItem(self.apellido.text())
-        self.lista.addItem(self.email.text())
-        self.lista.addItem(self.telefono.text())
-        self.lista.addItem(self.direccion.text())
-        self.lista.addItem(self.fechaNac.text())
-        self.lista.addItem(self.altura.text())
-        self.lista.addItem(self.peso.text())
+        nombre = self.nombre.text()
+        apellido = self.apellido.text()
+        email = self.email.text()
+        telefono = self.telefono.text()
+        direccion = self.direccion.text()
+        fechaNac = self.fechaNac.text()
+        altura = self.altura.text()
+        peso = self.peso.text()
+        self.lista.addItem(str('Nombre: '+ nombre +   ' -    Apellido: ' +   apellido +   ' -  email: '  +   email +   ' -  Telefono: '   +   telefono +   ' -  Direccion: '   +   direccion +   ' -  Fecha Nac.: '   +   fechaNac +   ' -  Altura: '   +   altura +   ' -  Peso: '   +   peso))
 
-        
-        
-        
+  
         
         self.nombre = self.nombre.text()
         self.apellido = self.apellido.text()
@@ -64,6 +99,8 @@ class MiVentana(QMainWindow):
 
        
     def on_nuevo_reg(self): 
+
+        
        
         self.btn_nuevo.setEnabled(False)
         self.btn_editar.setEnabled(False)
@@ -71,21 +108,21 @@ class MiVentana(QMainWindow):
         self.btn_aceptar.setEnabled(True)
         self.btn_cancelar.setEnabled(True)
 
-        self.nombre.setText("")
+        self.nombre.setText()
         self.nombre.setEnabled(True)
-        self.apellido.setText("")
+        self.apellido.setText()
         self.apellido.setEnabled(True)
-        self.email.setText("")
+        self.email.setText()
         self.email.setEnabled(True)
-        self.telefono.setText("")
+        self.telefono.setText()
         self.telefono.setEnabled(True)
-        self.direccion.setText("")
+        self.direccion.setText()
         self.direccion.setEnabled(True)
-        self.fechaNac.setText("")
+        self.fechaNac.setText()
         self.fechaNac.setEnabled(True)
-        self.altura.setText("")
+        self.altura.setText()
         self.altura.setEnabled(True)
-        self.peso.setText("")
+        self.peso.setText()
         self.peso.setEnabled(True)
 
         
@@ -114,13 +151,17 @@ class MiVentana(QMainWindow):
 
         
 
-    # def on_eliminar_reg(self): 
-    #     self.cursorEliminar = conexion.cursor()
-    #     consulta = 'delete from contactos where nombre = ?'
+    def on_eliminar_reg(self):
 
-    #     cursorEliminar.execute(consulta,'')
-    #     cursorEliminar.commit()
-    #     cursorEliminar.close
+        self.conexion = sqlite3.connect('contactos.db')
+        self.cursor = self.conexion.cursor(self.lista.takeItem(self.lista.currentRow()))
+        registro = self.cursor()
+        
+        self.cursor.execute('DELETE FROM contactos WHERE registro = ' + registro)
+        self.conexion.commit()
+
+        self.cursor.execute('SELECT * FROM contactos')
+        
         
 
     # def on_cancelar_reg(self): 
