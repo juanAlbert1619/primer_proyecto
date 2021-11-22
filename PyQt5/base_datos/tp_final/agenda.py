@@ -54,7 +54,7 @@ class MiVentana(QMainWindow):
 
     # Insertar los datos en la tabla de campos
 
-        self.cursor.execute("INSERT INTO contactos (nombre, apellido, email, telefono, direccion, fechaNac,  altura, peso) VALUES ('{nombre}', '{apellido}', '{email}', '{telefono}', '{direccion}', '{fechaNac}', '{alto}', '{peso}')", self.registros)
+        self.cursor.execute("INSERT INTO contactos (nombre, apellido, email, telefono, direccion, fechaNac,  altura, peso) VALUES ('?, ?, ?, ?, ?, ?, ?, ?,')", self.registros)
         self.conexion.commit()
         
         #conexion.commit()
