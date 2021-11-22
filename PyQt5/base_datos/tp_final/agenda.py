@@ -25,51 +25,7 @@ class MiVentana(QMainWindow):
 
     def on_aceptar_reg(self):
 
-        self.conexion = sqlite3.connect('contactos.db')
-        self.cursor = self.conexion.cursor()
-
-    # Datos
-
-        # self.lista.addItem(self.nombre.text())
-        # self.lista.addItem(self.apellido.text())
-        # self.lista.addItem(self.email.text())
-        # self.lista.addItem(self.telefono.text())
-        # self.lista.addItem(self.direccion.text())
-        # self.lista.addItem(self.fechaNac.text())
-        # self.lista.addItem(self.altura.text())
-        # self.lista.addItem(self.peso.text())
-
-        # nombre = (self.nombre.text())
-        # apellido = (self.apellido.text())
-        # email = (self.email.text())
-        # telefono = (self.telefono.text())
-        # direccion = (self.direccion.text())
-        # fechaNac = (self.fechaNac.text())
-        # altura = (self.altura.text())
-        # peso = (self.peso.text())
-        # self.lista.addItem(nombre, apellido, email, telefono, direccion, fechaNac, altura, peso)
-        
-        
-        
-        self.nombre = (str(self.nombre.text([])))
-        self.apellido = (str(self.apellido.text([])))
-        self.email = (str(self.email.text([])))
-        self.telefono = (str(self.telefono.text([])))
-        self.direccion = (str(self.direccion.text([])))
-        self.fechaNac = (str(self.fechaNac.text([])))
-        self.altura = (str(self.altura.text([])))
-        self.peso = (str(self.peso.text([])))
-        self.registros = (self.nombre, self.apellido,  self.email, self.telefono, self.direccion, self.fechaNac,  self.altura, self.peso)
-
-
-    # Insertar los datos en la tabla de campos
-        self.cursor.execute("INSERT INTO contactos (nombre, apellido, email, telefono, direccion, fechaNac,  altura, peso) VALUES ('?, ?, ?, ?, ?, ?, ?, ?,')", self.registros)
-        self.conexion.commit()
-        
-        #conexion.commit()
-
-        self.conexion.close()
-
+        pass
        
     def on_nuevo_reg(self): 
        
