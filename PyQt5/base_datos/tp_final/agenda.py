@@ -1,3 +1,5 @@
+
+
 from sqlite3.dbapi2 import Cursor
 from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox,QInputDialog
 from PyQt5 import uic
@@ -11,6 +13,8 @@ class MiVentana(QMainWindow):
         #conectar la base de datos
         self.conexion = sqlite3.connect('contactos.db')
         self.cursor = self.conexion.cursor()
+
+        
        
        
         self.btn_nuevo.clicked.connect(self.on_nuevo_reg)
@@ -37,33 +41,27 @@ class MiVentana(QMainWindow):
         
         
         
-        self.nombre = (str(self.nombre.text()))
-        self.apellido = (str(self.apellido.text()))
-        self.email = (str(self.email.text()))
-        self.telefono = (str(self.telefono.text()))
-        self.direccion = (str(self.direccion.text()))
-        self.fechaNac = (str(self.fechaNac.text()))
-        self.altura = (str(self.altura.text()))
-        self.peso = (str(self.peso.text()))
-        self.registros = (self.nombre, self.apellido, self.nombre, self.direccion, self.email, self.fechaNac, self.telefono, self.altura, self.peso)
+        self.nombre = (str(self.nombre.text([0])))
+        self.apellido = (str(self.apellido.text([1])))
+        self.email = (str(self.email.text([2])))
+        self.telefono = (str(self.telefono.text([3])))
+        self.direccion = (str(self.direccion.text([4])))
+        self.fechaNac = (str(self.fechaNac.text([5])))
+        self.altura = (str(self.altura.text([6])))
+        self.peso = (str(self.peso.text([7])))
+        self.registros = (self.nombre, self.apellido,  self.email, self.telefono, self.direccion, self.fechaNac,  self.altura, self.peso)
 
 
     # Insertar los datos en la tabla de campos
 
-        self.cursor.execute("INSERT INTO contactos (nombre, apellido, email, telefono, direccion, fechaNac,  altura, peso) VALUES ('{0} ', '{1} ', '{2} ', '{3} ', '{4} ', '{5} ', '{6} ', '{7} ', )", self.registros)
+        self.cursor.execute("INSERT INTO contactos (nombre, apellido, email, telefono, direccion, fechaNac,  altura, peso) VALUES ('{nombre}', '{apellido}', '{email}', '{telefono}', '{direccion}', '{fechaNac}', '{alto}', '{peso}')", self.registros)
         self.conexion.commit()
-
-        
-
-        
         
         #conexion.commit()
 
         self.conexion.close()
 
-              
-
-
+       
     def on_nuevo_reg(self): 
 
        
