@@ -8,7 +8,7 @@ import sqlite3
 class MiVentana(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('00-agenda_completa.ui', self)
+        uic.loadUi('tp_final\00-agenda_completa.ui', self)
 
         #conectar la base de datos
         self.conexion = sqlite3.connect('contactos.db')
@@ -63,7 +63,6 @@ class MiVentana(QMainWindow):
 
        
     def on_nuevo_reg(self): 
-
        
         self.btn_nuevo.setEnabled(False)
         self.btn_editar.setEnabled(True)
