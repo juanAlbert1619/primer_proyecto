@@ -1,4 +1,3 @@
-from sqlite3.dbapi2 import Cursor
 from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox,QInputDialog
 from PyQt5 import uic
 import sqlite3
@@ -108,21 +107,21 @@ class MiVentana(QMainWindow):
         self.btn_aceptar.setEnabled(True)
         self.btn_cancelar.setEnabled(True)
 
-        self.nombre.setText()
+        self.nombre.setText("")
         self.nombre.setEnabled(True)
-        self.apellido.setText()
+        self.apellido.setText("")
         self.apellido.setEnabled(True)
-        self.email.setText()
+        self.email.setText("")
         self.email.setEnabled(True)
-        self.telefono.setText()
+        self.telefono.setText("")
         self.telefono.setEnabled(True)
-        self.direccion.setText()
+        self.direccion.setText("")
         self.direccion.setEnabled(True)
-        self.fechaNac.setText()
+        self.fechaNac.setText("")
         self.fechaNac.setEnabled(True)
-        self.altura.setText()
+        self.altura.setText("")
         self.altura.setEnabled(True)
-        self.peso.setText()
+        self.peso.setText("")
         self.peso.setEnabled(True)
 
         
@@ -153,11 +152,13 @@ class MiVentana(QMainWindow):
 
     def on_eliminar_reg(self):
 
+        apellido = raw_input('Nombre')
+
         self.conexion = sqlite3.connect('contactos.db')
-        self.cursor = self.conexion.cursor(self.lista.takeItem(self.lista.currentRow()))
-        registro = self.cursor()
+        self.cursor = self.conexion.cursor()
         
-        self.cursor.execute('DELETE FROM contactos WHERE registro = ' + registro)
+        
+        self.cursor.execute('DELETE FROM contactos WHERE Nombre = nombre and Apellido = apellido', {'nombre': nombre, 'Apellido': apellido} )
         self.conexion.commit()
 
         self.cursor.execute('SELECT * FROM contactos')
