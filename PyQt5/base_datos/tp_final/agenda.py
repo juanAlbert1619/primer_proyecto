@@ -46,21 +46,21 @@ class MiVentana(QMainWindow):
         self.btn_cancelar.setEnabled(False)
 
 
-        self.nombre.setText("")
+        # self.nombre.setText("")
         self.nombre.setEnabled(False)
-        self.apellido.setText("")
+        # self.apellido.setText("")
         self.apellido.setEnabled(False)
-        self.email.setText("")
+        # self.email.setText("")
         self.email.setEnabled(False)
-        self.telefono.setText("")
+        # self.telefono.setText("")
         self.telefono.setEnabled(False)
-        self.direccion.setText("")
+        # self.direccion.setText("")
         self.direccion.setEnabled(False)
-        self.fechaNac.setText("")
+        # self.fechaNac.setText("")
         self.fechaNac.setEnabled(False)
-        self.altura.setText("")
+        # self.altura.setText("")
         self.altura.setEnabled(False)
-        self.peso.setText("")
+        # self.peso.setText("")
         self.peso.setEnabled(False)
 
     # Datos
@@ -150,16 +150,17 @@ class MiVentana(QMainWindow):
 
         
 
-    def on_eliminar_reg(self):
+    def on_eliminar_reg():
 
-        self.conexion = sqlite3.connect('contactos.db')
-        self.cursor = self.conexion.cursor()
+       
+        conexion = sqlite3.connect('contactos.db')
+        cursor = conexion.cursor()
         
         
-        self.cursor.execute('DELETE FROM contactos WHERE Nombre = nombre and Apellido = apellido', {'nombre': nombre, 'Apellido': apellido} )
-        self.conexion.commit()
+        cursor.execute('DELETE FROM contactos WHERE nombre = {}'.format (lista.takeItem(lista.currentRow()))
+        conexion.commit()
 
-        self.cursor.execute('SELECT * FROM contactos')
+       
         
         
 
