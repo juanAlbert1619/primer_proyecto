@@ -46,21 +46,21 @@ class MiVentana(QMainWindow):
         self.btn_cancelar.setEnabled(False)
 
 
-        # self.nombre.setText("")
+        self.nombre.setText("")
         self.nombre.setEnabled(False)
-        # self.apellido.setText("")
+        self.apellido.setText("")
         self.apellido.setEnabled(False)
-        # self.email.setText("")
+        self.email.setText("")
         self.email.setEnabled(False)
-        # self.telefono.setText("")
+        self.telefono.setText("")
         self.telefono.setEnabled(False)
-        # self.direccion.setText("")
+        self.direccion.setText("")
         self.direccion.setEnabled(False)
-        # self.fechaNac.setText("")
+        self.fechaNac.setText("")
         self.fechaNac.setEnabled(False)
-        # self.altura.setText("")
+        self.altura.setText("")
         self.altura.setEnabled(False)
-        # self.peso.setText("")
+        self.peso.setText("")
         self.peso.setEnabled(False)
 
     # Datos
@@ -108,21 +108,21 @@ class MiVentana(QMainWindow):
         self.btn_cancelar.setEnabled(True)
 
         self.nombre.setText("")
-        self.nombre.setEnabled(True)
+        self.nombre.setDisabled(False)
         self.apellido.setText("")
-        self.apellido.setEnabled(True)
+        self.apellido.setDisabled(False)
         self.email.setText("")
-        self.email.setEnabled(True)
+        self.email.setDisabled(False)
         self.telefono.setText("")
-        self.telefono.setEnabled(True)
+        self.telefono.setDisabled(False)
         self.direccion.setText("")
-        self.direccion.setEnabled(True)
+        self.direccion.setDisabled(False)
         self.fechaNac.setText("")
-        self.fechaNac.setEnabled(True)
+        self.fechaNac.setDisabled(False)
         self.altura.setText("")
-        self.altura.setEnabled(True)
+        self.altura.setDisabled(False)
         self.peso.setText("")
-        self.peso.setEnabled(True)
+        self.peso.setDisabled(False)
 
         
 
@@ -150,15 +150,16 @@ class MiVentana(QMainWindow):
 
         
 
-    def on_eliminar_reg():
+    def on_eliminar_reg(self):
 
        
-        conexion = sqlite3.connect('contactos.db')
-        cursor = conexion.cursor()
-        
-        
-        cursor.execute('DELETE FROM contactos WHERE nombre = {}'.format (lista.takeItem(lista.currentRow()))
-        conexion.commit()
+        self.conexion = sqlite3.connect('contactos.db')
+        self.cursor = self.conexion.cursor()
+        self.cursor.execute("DELETE FROM contactos  WHERE id = " + self.id_contacto)
+        self.conexion.commit()
+        self.lista.clear()
+        self.cursor = self.conexion.cursor()
+        self.cursor.execute('select * from contactos')
 
        
         
