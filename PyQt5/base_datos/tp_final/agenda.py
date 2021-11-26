@@ -1,4 +1,3 @@
-from _typeshed import Self
 from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox,QInputDialog
 from PyQt5 import uic
 import sqlite3
