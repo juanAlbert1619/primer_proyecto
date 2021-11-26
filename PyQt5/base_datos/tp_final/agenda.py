@@ -23,6 +23,12 @@ class MiVentana(QMainWindow):
         self.conexion = sqlite3.connect('contactos.db')
         self.cursor = self.conexion.cursor()
 
+        self.btn_nuevo.setEnabled(True)
+        self.btn_editar.setEnabled(False)
+        self.btn_eliminar.setEnabled(False)
+        self.btn_aceptar.setEnabled(False)
+        self.btn_cancelar.setEnabled(False)
+
         
        
        
@@ -44,6 +50,8 @@ class MiVentana(QMainWindow):
         self.btn_eliminar.setEnabled(True)
         self.btn_aceptar.setEnabled(False)
         self.btn_cancelar.setEnabled(False)
+
+       
 
     # Datos
 
@@ -73,7 +81,7 @@ class MiVentana(QMainWindow):
     # Insertar los datos en la tabla de campos
         self.cursor.execute("INSERT INTO contactos (nombre, apellido, email, telefono, direccion, fechaNac,  altura, peso) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", self.registros)
         self.conexion.commit()
-        
+
         self.nombre.setText("")
         self.nombre.setEnabled(False)
         self.apellido.setText("")
@@ -90,7 +98,7 @@ class MiVentana(QMainWindow):
         self.altura.setEnabled(False)
         self.peso.setText("")
         self.peso.setEnabled(False)
-
+        
         self.conexion.close()
 
        
