@@ -1,3 +1,4 @@
+from _typeshed import Self
 from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox,QInputDialog
 from PyQt5 import uic
 import sqlite3
@@ -45,7 +46,35 @@ class MiVentana(QMainWindow):
         self.btn_aceptar.setEnabled(False)
         self.btn_cancelar.setEnabled(False)
 
+    # Datos
 
+        nombre = self.nombre.text()
+        apellido = self.apellido.text()
+        email = self.email.text()
+        telefono = self.telefono.text()
+        direccion = self.direccion.text()
+        fechaNac = self.fechaNac.text()
+        altura = self.altura.text()
+        peso = self.peso.text()
+        self.lista.addItem(str('Nombre: '+ nombre +   ' -    Apellido: ' +   apellido +   ' -  email: '  +   email +   ' -  Telefono: '   +   telefono +   ' -  Direccion: '   +   direccion +   ' -  Fecha Nac.: '   +   fechaNac +   ' -  Altura: '   +   altura +   ' -  Peso: '   +   peso))
+
+  
+        
+        self.nombre = str(self.nombre.text())
+        self.apellido = str(self.apellido.text())
+        self.email = str(self.email.text())
+        self.telefono = str(self.telefono.text())
+        self.direccion = str(self.direccion.text())
+        self.fechaNac = str(self.fechaNac.text())
+        self.altura = str(self.altura.text())
+        self.peso = str(self.peso.text())
+        self.registros = (self.nombre, self.apellido,  self.email, self.telefono, self.direccion, self.fechaNac,  self.altura, self.peso)
+
+
+    # Insertar los datos en la tabla de campos
+        self.cursor.execute("INSERT INTO contactos (nombre, apellido, email, telefono, direccion, fechaNac,  altura, peso) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", self.registros)
+        self.conexion.commit()
+        
         self.nombre.setText("")
         self.nombre.setEnabled(False)
         self.apellido.setText("")
@@ -62,37 +91,6 @@ class MiVentana(QMainWindow):
         self.altura.setEnabled(False)
         self.peso.setText("")
         self.peso.setEnabled(False)
-
-    # Datos
-
-        nombre = self.nombre.text()
-        apellido = self.apellido.text()
-        email = self.email.text()
-        telefono = self.telefono.text()
-        direccion = self.direccion.text()
-        fechaNac = self.fechaNac.text()
-        altura = self.altura.text()
-        peso = self.peso.text()
-        self.lista.addItem(str('Nombre: '+ nombre +   ' -    Apellido: ' +   apellido +   ' -  email: '  +   email +   ' -  Telefono: '   +   telefono +   ' -  Direccion: '   +   direccion +   ' -  Fecha Nac.: '   +   fechaNac +   ' -  Altura: '   +   altura +   ' -  Peso: '   +   peso))
-
-  
-        
-        self.nombre = self.nombre.text()
-        self.apellido = self.apellido.text()
-        self.email = self.email.text()
-        self.telefono = self.telefono.text()
-        self.direccion = self.direccion.text()
-        self.fechaNac = self.fechaNac.text()
-        self.altura = self.altura.text()
-        self.peso = self.peso.text()
-        self.registros = (self.nombre, self.apellido,  self.email, self.telefono, self.direccion, self.fechaNac,  self.altura, self.peso)
-
-
-    # Insertar los datos en la tabla de campos
-        self.cursor.execute("INSERT INTO contactos (nombre, apellido, email, telefono, direccion, fechaNac,  altura, peso) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", self.registros)
-        self.conexion.commit()
-        
-        #conexion.commit()
 
         self.conexion.close()
 
