@@ -34,7 +34,7 @@ class MiVentana(QMainWindow):
        
         self.btn_nuevo.clicked.connect(self.on_nuevo_reg)
         #self.btn_editar.clicked.connect(self.on_editar_reg)
-        #self.btn_eliminar.clicked.connect(self.on_eliminar_reg)
+        self.btn_eliminar.clicked.connect(self.on_eliminar_reg)
         self.btn_aceptar.clicked.connect(self.on_aceptar_reg)
         #self.btn_cancelar.clicked.connect(self.on_cancelar_reg)
 
@@ -104,7 +104,22 @@ class MiVentana(QMainWindow):
        
     def on_nuevo_reg(self): 
 
-        
+        self.nombre.setText("")
+        self.nombre.setEnabled(False)
+        self.apellido.setText("")
+        self.apellido.setEnabled(False)
+        self.email.setText("")
+        self.email.setEnabled(False)
+        self.telefono.setText("")
+        self.telefono.setEnabled(False)
+        self.direccion.setText("")
+        self.direccion.setEnabled(False)
+        self.fechaNac.setText("")
+        self.fechaNac.setEnabled(False)
+        self.altura.setText("")
+        self.altura.setEnabled(False)
+        self.peso.setText("")
+        self.peso.setEnabled(False)
        
         self.btn_nuevo.setEnabled(False)
         self.btn_editar.setEnabled(False)
@@ -112,22 +127,10 @@ class MiVentana(QMainWindow):
         self.btn_aceptar.setEnabled(True)
         self.btn_cancelar.setEnabled(True)
 
-        self.nombre.setText("")
-        self.nombre.setEnabled(True)
-        self.apellido.setText("")
-        self.apellido.setEnabled(True)
-        self.email.setText("")
-        self.email.setEnabled(True)
-        self.telefono.setText("")
-        self.telefono.setEnabled(True)
-        self.direccion.setText("")
-        self.direccion.setEnabled(True)
-        self.fechaNac.setText("")
-        self.fechaNac.setEnabled(True)
-        self.altura.setText("")
-        self.altura.setEnabled(True)
-        self.peso.setText("")
-        self.peso.setEnabled(True)
+       
+       
+
+        
 
         
 
@@ -157,14 +160,22 @@ class MiVentana(QMainWindow):
 
     def on_eliminar_reg(self):
 
-       
-        self.conexion = sqlite3.connect('contactos.db')
-        self.cursor = self.conexion.cursor()
-        self.cursor.execute("DELETE FROM contactos  WHERE id = " + self.id_contacto)
-        self.conexion.commit()
-        self.lista.clear()
-        self.cursor = self.conexion.cursor()
-        self.cursor.execute('select * from contactos')
+        msg = QMessageBox()
+        msg.setWindowTitle('Quitar Registro')
+        msg.setText('Quieres eliminar el \n registro que seleccionaste?')
+        msg.setIcon(QMessageBox.Warning)
+        msg.setStandardButtons(QMessageBox.Ok )
+        
+        
+        resultado = msg.exec_()
+        if resultado == QMessageBox.Ok:
+            id = self.lista.selectedItem()[0]
+            contacto = self.lista.currentRow()
+
+            self.lista.takeItem(contacto)
+            self.cursor.execute('Delete from contacto Where id= ?' + id.text()[0])
+            self.conexion.commit()
+        
 
        
         
