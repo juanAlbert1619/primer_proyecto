@@ -13,11 +13,11 @@ class MiVentana(QMainWindow):
         cursor.execute('select nombre, apellido, email, telefono, direccion, fechaNac,  altura, peso from contactos')
         filas = cursor.fetchall()
 
-        self.lista.clear()
+        self.tabla.clear()
 
 
         for fila in filas:
-           self.lista.addItem(f'nombre: {fila[0]} apellido: {fila[1]} email: {fila[2]} telefono: {fila[3]} direccion: {fila[4]} fechaNac {fila[5]}  altura: {fila[6]} peso: {fila[7]}')
+           self.tabla.addItem(f'nombre: {fila[0]} apellido: {fila[1]} email: {fila[2]} telefono: {fila[3]} direccion: {fila[4]} fechaNac {fila[5]}  altura: {fila[6]} peso: {fila[7]}')
 
         #conectar la base de datos
         self.conexion = sqlite3.connect('contactos.db')
@@ -29,8 +29,17 @@ class MiVentana(QMainWindow):
         self.btn_aceptar.setEnabled(False)
         self.btn_cancelar.setEnabled(False)
 
-        
+        #limpiando QlineEdit
+        self.nombre.setText('')
+        self.apellido.setText('')
+        self.email.setText('')
+        self.telefono.setText('')
+        self.direccion.setText('')
+        self.fechaNac.setText('')
+        self.altura.setText('')
+        self.peso.setText('')
        
+
        
         self.btn_nuevo.clicked.connect(self.on_nuevo_reg)
         #self.btn_editar.clicked.connect(self.on_editar_reg)
@@ -63,7 +72,7 @@ class MiVentana(QMainWindow):
         fechaNac = self.fechaNac.text()
         altura = self.altura.text()
         peso = self.peso.text()
-        self.lista.addItem(str('Nombre: '+ nombre +   ' -    Apellido: ' +   apellido +   ' -  email: '  +   email +   ' -  Telefono: '   +   telefono +   ' -  Direccion: '   +   direccion +   ' -  Fecha Nac.: '   +   fechaNac +   ' -  Altura: '   +   altura +   ' -  Peso: '   +   peso))
+        self.tabla.addItem(str('Nombre: '+ nombre +   ' -    Apellido: ' +   apellido +   ' -  email: '  +   email +   ' -  Telefono: '   +   telefono +   ' -  Direccion: '   +   direccion +   ' -  Fecha Nac.: '   +   fechaNac +   ' -  Altura: '   +   altura +   ' -  Peso: '   +   peso))
 
   
         
@@ -82,21 +91,19 @@ class MiVentana(QMainWindow):
         self.cursor.execute("INSERT INTO contactos (nombre, apellido, email, telefono, direccion, fechaNac,  altura, peso) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", self.registros)
         self.conexion.commit()
 
+        self.nombre.setEnabled(False)
+        self.apellido.setEnabled(False)
+        self.email.setEnabled(False)
+        self.telefono.setEnabled(False)
+        self.direccion.setEnabled(False)
+        self.fechaNac.setEnabled(False)
+        self.altura.setEnabled(False)
+        self.peso.setEnabled(False)
+
         self.conexion.close()
 
        
     def on_nuevo_reg(self): 
-
-
-        self.nombre.setText(str(""))
-        self.apellido.setText(str(""))
-        self.email.setText(str(""))
-        self.telefono.setText(str(""))
-        self.direccion.setText(str(""))
-        self.fechaNac.setText(str(""))
-        self.altura.setText(str(""))
-        self.peso.setText(str(""))
-
 
         self.nombre.setEnabled(True)
         self.apellido.setEnabled(True)
@@ -115,9 +122,6 @@ class MiVentana(QMainWindow):
 
         
 
-        
-
-        
 
     # def on_editar_reg(self): 
     #      pass  
@@ -154,10 +158,10 @@ class MiVentana(QMainWindow):
         
         resultado = msg.exec_()
         if resultado == QMessageBox.Ok:
-            id = self.lista.selectedItem()[0]
-            contacto = self.lista.currentRow()
+            id = self.tabla.selectedItem()[0]
+            contacto = self.tabla.currentRow()
 
-            self.lista.takeItem(contacto)
+            self.tabla.takeItem(contacto)
             self.cursor.execute('Delete from contacto Where id= ?' + id.text()[0])
             self.conexion.commit()
         
