@@ -38,6 +38,17 @@ class MiVentana(QMainWindow):
         self.fechaNac.setText('')
         self.altura.setText('')
         self.peso.setText('')
+
+        #Deshabilitados QlineEdit
+
+        self.nombre.setEnabled(False)
+        self.apellido.setEnabled(False)
+        self.email.setEnabled(False)
+        self.telefono.setEnabled(False)
+        self.direccion.setEnabled(False)
+        self.fechaNac.setEnabled(False)
+        self.altura.setEnabled(False)
+        self.peso.setEnabled(False)
        
 
        
@@ -90,15 +101,6 @@ class MiVentana(QMainWindow):
     # Insertar los datos en la tabla de campos
         self.cursor.execute("INSERT INTO contactos (nombre, apellido, email, telefono, direccion, fechaNac,  altura, peso) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", self.registros)
         self.conexion.commit()
-
-        self.nombre.setEnabled(False)
-        self.apellido.setEnabled(False)
-        self.email.setEnabled(False)
-        self.telefono.setEnabled(False)
-        self.direccion.setEnabled(False)
-        self.fechaNac.setEnabled(False)
-        self.altura.setEnabled(False)
-        self.peso.setEnabled(False)
 
         self.conexion.close()
 
