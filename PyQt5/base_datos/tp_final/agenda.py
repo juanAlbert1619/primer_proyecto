@@ -82,53 +82,38 @@ class MiVentana(QMainWindow):
         self.cursor.execute("INSERT INTO contactos (nombre, apellido, email, telefono, direccion, fechaNac,  altura, peso) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", self.registros)
         self.conexion.commit()
 
-        self.nombre.setText("")
-        self.nombre.setEnabled(False)
-        self.apellido.setText("")
-        self.apellido.setEnabled(False)
-        self.email.setText("")
-        self.email.setEnabled(False)
-        self.telefono.setText("")
-        self.telefono.setEnabled(False)
-        self.direccion.setText("")
-        self.direccion.setEnabled(False)
-        self.fechaNac.setText("")
-        self.fechaNac.setEnabled(False)
-        self.altura.setText("")
-        self.altura.setEnabled(False)
-        self.peso.setText("")
-        self.peso.setEnabled(False)
-        
         self.conexion.close()
 
        
     def on_nuevo_reg(self): 
 
-        self.nombre.setText("")
-        self.nombre.setEnabled(False)
-        self.apellido.setText("")
-        self.apellido.setEnabled(False)
-        self.email.setText("")
-        self.email.setEnabled(False)
-        self.telefono.setText("")
-        self.telefono.setEnabled(False)
-        self.direccion.setText("")
-        self.direccion.setEnabled(False)
-        self.fechaNac.setText("")
-        self.fechaNac.setEnabled(False)
-        self.altura.setText("")
-        self.altura.setEnabled(False)
-        self.peso.setText("")
-        self.peso.setEnabled(False)
-       
+
+        self.nombre.setText(str(""))
+        self.apellido.setText(str(""))
+        self.email.setText(str(""))
+        self.telefono.setText(str(""))
+        self.direccion.setText(str(""))
+        self.fechaNac.setText(str(""))
+        self.altura.setText(str(""))
+        self.peso.setText(str(""))
+
+
+        self.nombre.setEnabled(True)
+        self.apellido.setEnabled(True)
+        self.email.setEnabled(True)
+        self.telefono.setEnabled(True)
+        self.direccion.setEnabled(True)
+        self.fechaNac.setEnabled(True)
+        self.altura.setEnabled(True)
+        self.peso.setEnabled(True)
+                
         self.btn_nuevo.setEnabled(False)
         self.btn_editar.setEnabled(False)
         self.btn_eliminar.setEnabled(False)
         self.btn_aceptar.setEnabled(True)
         self.btn_cancelar.setEnabled(True)
 
-       
-       
+        
 
         
 
